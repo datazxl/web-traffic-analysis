@@ -4,7 +4,7 @@ import com.zxl.preparser.{PreParsedLog, WebLogPreParser}
 import org.apache.spark.sql.{Encoders, SaveMode, SparkSession}
 
 /**
-  * 功能：完成对原始访问数据的预解析，并入库到Hive中
+  * 功能：原始数据进行预解析，并入库到Hive的rawdata.web表中
   */
 object PreparseETL {
   def main(args: Array[String]): Unit = {
