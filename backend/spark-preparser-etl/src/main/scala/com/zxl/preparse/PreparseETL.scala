@@ -3,9 +3,7 @@ package com.zxl.preparse
 import com.zxl.preparser.{PreParsedLog, WebLogPreParser}
 import org.apache.spark.sql.{Encoders, SaveMode, SparkSession}
 
-/**
-  * 功能：原始数据进行预解析，并入库到Hive的rawdata.web表中
-  */
+
 object PreparseETL {
   def main(args: Array[String]): Unit = {
     val spark: SparkSession = SparkSession.builder().appName("PreparseETL")
