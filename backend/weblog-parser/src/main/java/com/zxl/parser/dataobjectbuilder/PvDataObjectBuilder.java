@@ -63,25 +63,25 @@ public class PvDataObjectBuilder extends AbstractDataObjectBuilder{
         return baseDataObjects;
     }
 
-    private TargetPageDataObject populateTargetPage(PvDataObject pvDataObject, PreParsedLog preParsedLog, ColumnReader columnReader) {
+private TargetPageDataObject populateTargetPage(PvDataObject pvDataObject,
+                                                PreParsedLog preParsedLog, ColumnReader columnReader) {
+    //得到指定的profileId所有已经匹配到的目标页面对象
+    List<TargetPage> targetPages = targetPageAnalyzer.getMatchedTargetPages(pvDataObject.getProfileId(),
+            pvDataObject.getSiteResourceInfo().getUrl());
+    //2.填充特有字段
+    //2.组成TargetPageDataObject
+    if (targetPages != null && !targetPages.isEmpty()){
         TargetPageDataObject targetPageDataObject = new TargetPageDataObject();
-        //1.解析并填充公共字段
-        fillCommonBaseDataObjectValue(pvDataObject, preParsedLog, columnReader);
-        //2.填充特有字段
-        //得到指定的profileId所有已经匹配到的目标页面对象
-        List<TargetPage> targetPages = targetPageAnalyzer.getMatchedTargetPages(pvDataObject.getProfileId(), pvDataObject.getSiteResourceInfo().getUrl());
-        //2.组成TargetPageDataObject
-        if (targetPages != null && !targetPages.isEmpty()){
-            List<TargetPageInfo> targetPageInfos = targetPages.stream().map(targetPage ->
-                    new TargetPageInfo(targetPage.getId(), targetPage.getName(), targetPage.isEnable())).collect(Collectors.toList());
-
-            targetPageDataObject.setTargetPageInfos(targetPageInfos);
-            targetPageDataObject.setPvDataObject(pvDataObject);
-            return  targetPageDataObject;
-        }
-
-        return null;
+        List<TargetPageInfo> targetPageInfos = targetPages.stream().map(targetPage ->
+                new TargetPageInfo(targetPage.getId(), targetPage.getName(), targetPage.isEnable())).collect(Collectors.toList());
+        fillCommonBaseDataObjectValue(targetPageDataObject, preParsedLog, columnReader);
+        targetPageDataObject.setTargetPageInfos(targetPageInfos);
+        targetPageDataObject.setPvDataObject(pvDataObject);
+        return  targetPageDataObject;
     }
+
+    return null;
+}
 
     private void resolveReferrerDerivedColumns(ReferrerInfo referrerInfo, AdInfo adInfo) {
         //1来源渠道的计算逻辑：

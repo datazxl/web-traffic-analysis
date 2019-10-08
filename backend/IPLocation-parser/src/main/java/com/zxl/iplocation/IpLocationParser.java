@@ -24,7 +24,7 @@ public class IpLocationParser {
                 String[] fields = line.replace("\"", "").split(",");
                 //key：IpRange
                 //value：位置id
-                ipRange2CityId.put(new IpRange(Long.parseLong(fields[0]), Long.parseLong(fields[1])),Long.parseLong(fields[2]));
+                ipRange2CityId.put(new IpRange(Long.parseLong(fields[0]), Long.parseLong(fields[1])), Long.parseLong(fields[2]));
             }
             //2. 读取region_codes.csv
             InputStream inputStream2 = IpLocationParser.class.getClassLoader().getResourceAsStream("region_codes.csv");
@@ -34,7 +34,7 @@ public class IpLocationParser {
                 String[] fields = line.replace("\"", "").split(",");
                 // key：国家-区域Id
                 //value：区域名称
-                countryRegionId2RegionName.put(fields[0]+"-"+fields[1],fields[2]);
+                countryRegionId2RegionName.put(fields[0] + "-" + fields[1], fields[2]);
             }
             //3. 读取GeoLiteCity-Location.csv
             InputStream inputStream3 = IpLocationParser.class.getClassLoader().getResourceAsStream("GeoLiteCity-Location.csv");
@@ -44,7 +44,7 @@ public class IpLocationParser {
                 String[] fields = line.replace("\"", "").split(",");
                 IpLocation ipLocation = new IpLocation();
                 ipLocation.setCountry(fields[1]);
-                ipLocation.setRegion(countryRegionId2RegionName.getOrDefault(fields[1] +"-" + fields[2], "-"));
+                ipLocation.setRegion(countryRegionId2RegionName.getOrDefault(fields[1] + "-" + fields[2], "-"));
                 ipLocation.setCity(fields[3]);
                 ipLocation.setPostalCode(fields[4]);
                 ipLocation.setLatitude(fields[5]);
@@ -63,14 +63,14 @@ public class IpLocationParser {
         //1.将ip转换为Long
         long ipNum = ip2Long(ip);
         //2.根据ip数字在IpRange2CityId中查找到对应CityId
-        for (Map.Entry<IpRange,Long> entry:ipRange2CityId.entrySet()){
-            if (ipNum >= entry.getKey().getStartIp() && ipNum <= entry.getKey().getEndIp()){
+        for (Map.Entry<IpRange, Long> entry : ipRange2CityId.entrySet()) {
+            //3.根据cityId在CityId2Location中找到对应Location
+            if (ipNum >= entry.getKey().getStartIp() && ipNum <= entry.getKey().getEndIp()) {
                 Long cityId = entry.getValue();
                 return cityId2Location.get(cityId);
             }
         }
         return null;
-        //3.根据cityId在CityId2Location中找到对应Location
     }
 
     private static long ip2Long(String ip) {

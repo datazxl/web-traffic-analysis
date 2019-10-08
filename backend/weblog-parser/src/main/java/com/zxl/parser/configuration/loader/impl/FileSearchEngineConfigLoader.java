@@ -43,9 +43,9 @@ public class FileSearchEngineConfigLoader implements SearchEngineConfigLoader {
             searchEngineConfigs.sort(new Comparator<SearchEngineConfig>() {
                 @Override
                 public int compare(SearchEngineConfig o1, SearchEngineConfig o2) {
-                    return o1.getKeyId() - o2.getKeyId();
-                }
-            });
+                return o1.getKeyId() - o2.getKeyId();
+            }
+        });
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (IOException e) {

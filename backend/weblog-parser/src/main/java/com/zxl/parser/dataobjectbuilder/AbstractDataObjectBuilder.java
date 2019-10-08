@@ -26,7 +26,7 @@ public abstract class AbstractDataObjectBuilder {
      * 解析公共的字段到BaseDataObject
      * @param baseDataObject 存放数据对象
      * @param preParsedLog 存放原始数据对象
-     * @param columnReader 存放解析后的query_string map
+     * @param columnReader 存放解析后的queryString map
      */
     public void fillCommonBaseDataObjectValue(BaseDataObject baseDataObject, PreParsedLog preParsedLog, ColumnReader columnReader){
         baseDataObject.setProfileId(preParsedLog.getProfileId());

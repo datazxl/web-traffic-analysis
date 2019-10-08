@@ -16,8 +16,8 @@ public class SearchEngineConfigService {
     private List<SearchEngineConfig> searchEngineConfigs = loader.getSearchEngineConfigs();
 
     /**
-     *  对构造子私有化
-     *  从而达到利用单例模式
+     * 对构造子私有化
+     * 从而达到利用单例模式
      */
     private SearchEngineConfigService() {}
 

@@ -26,6 +26,7 @@ public class BaseDataObject implements ParsedDataObject {
     private String userAgent;//访客系统环境
     private String clientIp;//客户端ip
     private IpLocation ipLocation; //ip地理位置
+    private UserAgent userAgentInfo;//访客系统环境
 
     public Date getServerTime() {
         return serverTime;
@@ -46,8 +47,6 @@ public class BaseDataObject implements ParsedDataObject {
     public void setUserAgentInfo(UserAgent userAgentInfo) {
         this.userAgentInfo = userAgentInfo;
     }
-
-    private UserAgent userAgentInfo;//访客系统环境
 
     public String getUserAgent() {
         return userAgent;

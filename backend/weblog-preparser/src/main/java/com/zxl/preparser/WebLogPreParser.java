@@ -18,10 +18,10 @@ public class WebLogPreParser {
             String[] queryFields = fields[5].split("&");
             preParsedLog.setProfileId(Integer.valueOf(queryFields[2].substring(queryFields[2].indexOf("-") + 1)));
             preParsedLog.setCommand(queryFields[1].split("=")[1]);
-            String serverTime = preParsedLog.getServerTime();
+            String serverTime = preParsedLog.getServerTime().replace("-", "");
             preParsedLog.setYear(Integer.parseInt(serverTime.substring(0,4)));
-            preParsedLog.setMonth(Integer.parseInt(serverTime.substring(5,7)));
-            preParsedLog.setDay(Integer.parseInt(serverTime.substring(8,10)));
+            preParsedLog.setMonth(Integer.parseInt(serverTime.substring(0,6)));
+            preParsedLog.setDay(Integer.parseInt(serverTime.substring(0,8)));
             return preParsedLog;
         }
     }

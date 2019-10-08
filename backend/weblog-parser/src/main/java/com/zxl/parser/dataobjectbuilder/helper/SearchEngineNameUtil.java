@@ -39,7 +39,7 @@ public class SearchEngineNameUtil {
             referrerInfo.setKeyword("-");
         }
 
-        //3、设置eqid
+        //3、设置eqid，只有百度搜索引擎有。
         if (referrerInfo.getQuery() != "-" &&
                 referrerInfo.getSearchEngineName().equalsIgnoreCase("baidu")) {
             referrerInfo.setEqId(referParams.getOrDefault("eqid", "-"));

@@ -6,10 +6,10 @@ import com.zxl.parser.dataobject.dim.ReferrerInfo;
 import com.zxl.parser.dataobject.dim.SiteResourceInfo;
 
 public class PvDataObject extends BaseDataObject {
-    private SiteResourceInfo siteResourceInfo = new SiteResourceInfo();
-    private ReferrerInfo referrerInfo = new ReferrerInfo();
-    private BrowserInfo browserInfo = new BrowserInfo();
-    private AdInfo adInfo = new AdInfo();
+    private SiteResourceInfo siteResourceInfo = new SiteResourceInfo();//网页信息
+    private ReferrerInfo referrerInfo = new ReferrerInfo();//来源信息
+    private BrowserInfo browserInfo = new BrowserInfo();//浏览器信息
+    private AdInfo adInfo = new AdInfo();//广告信息
 
     private int duration;// 当前页面的停留时间，单位为s
 

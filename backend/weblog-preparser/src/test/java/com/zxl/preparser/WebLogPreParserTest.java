@@ -32,7 +32,7 @@ public class WebLogPreParserTest {
         assertEquals("58.210.35.226", parsedLog.getClientIp());
         assertEquals("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36", parsedLog.getUserAgent());
         assertEquals(2018, parsedLog.getYear());
-        assertEquals(6, parsedLog.getMonth());
-        assertEquals(15, parsedLog.getDay());
+        assertEquals(201806, parsedLog.getMonth());
+        assertEquals(20180615, parsedLog.getDay());
     }
 }

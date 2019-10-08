@@ -29,7 +29,8 @@ public class ParseUtils {
     /**
      * 对一个已经编码的字符串进行解码
      * 有些字符串可能已经经过两次编码(比如url的参数等)，所以我们需要二次解码才能真正解码成功，例如：
-     * https%3A%2F%2Fwww.underarmour.cn%2F%3Futm_source%3Dbaidu%26utm_term%3D%25E6%25A0%2587%25E9%25A2%2598%26utm_medium%3DBrandZonePC%26utm_channel%3DSEM
+     * https%3A%2F%2Fwww.underarmour.cn%2F%3Futm_source%3Dbaidu%26utm_term%3D%25E6%25A0%2587%25E9%25A2%2598%26utm_m
+     * edium%3DBrandZonePC%26utm_channel%3DSEM
      * 第一次解码后为：
      * https://www.underarmour.cn/?utm_source=baidu&utm_term=%E6%A0%87%E9%A2%98&utm_medium=BrandZonePC&utm_channel=SEM
      * 第二次解码后为：

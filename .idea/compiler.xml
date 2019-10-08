@@ -7,7 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="frontend" />
+        <module name="IPLocation-parser" />
+        <module name="metadata" />
         <module name="spark-preparser-etl" />
+        <module name="spark-session-etl" />
+        <module name="weblog-parser" />
         <module name="weblog-preparser" />
         <module name="weblog-server" />
       </profile>
@@ -15,7 +19,11 @@
     <bytecodeTargetLevel>
       <module name="backend" target="1.5" />
       <module name="frontend" target="1.5" />
+      <module name="IPLocation-parser" target="1.8" />
+      <module name="metadata" target="1.8" />
       <module name="spark-preparser-etl" target="1.8" />
+      <module name="spark-session-etl" target="1.8" />
+      <module name="weblog-parser" target="1.8" />
       <module name="weblog-preparser" target="1.5" />
       <module name="weblog-server" target="1.5" />
     </bytecodeTargetLevel>
